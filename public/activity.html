@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>학습활동 추천 - 수업 준비 도우미</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/form-check.js" defer></script>
+  <script src="js/cards.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar" aria-label="기능 메뉴">
+      <a class="brand" href="index.html">수업 준비 도우미</a>
+      <ul class="menu">
+        <li><a href="quiz.html">퀴즈 생성기</a></li>
+        <li><a href="activity.html" aria-current="page">학습활동 추천</a></li>
+      </ul>
+    </nav>
+
+    <main class="main">
+      <div class="main-inner">
+        <h1 class="page-title">학습활동 추천</h1>
+
+        <form class="card" aria-label="학습활동 입력" novalidate data-submit-form data-feature="activity">
+          <div class="form-grid">
+            <div class="field" data-field data-label="학년">
+              <label class="field-label" for="activity-grade">학년</label>
+              <select class="input" id="activity-grade" name="grade" required>
+                <option value="">학년 선택</option>
+                <option>초1</option>
+                <option>초2</option>
+                <option>초3</option>
+                <option>초4</option>
+                <option>초5</option>
+                <option>초6</option>
+                <option>중1</option>
+                <option>중2</option>
+                <option>중3</option>
+                <option>고1</option>
+                <option>고2</option>
+                <option>고3</option>
+              </select>
+            </div>
+
+            <div class="field" data-field data-label="과목">
+              <label class="field-label" for="activity-subject">과목</label>
+              <input class="input" type="text" id="activity-subject" name="subject" autocomplete="off" required>
+            </div>
+
+            <div class="field field--wide" data-field data-label="학습 목표">
+              <label class="field-label" for="activity-goal">학습 목표</label>
+              <textarea class="input" id="activity-goal" name="goal" rows="3" aria-describedby="activity-goal-count" required></textarea>
+              <span class="char-count" id="activity-goal-count" data-count-for="activity-goal" data-max="200">0/200</span>
+            </div>
+
+            <div class="field" data-field data-label="활동 시간">
+              <label class="field-label" for="activity-minutes">활동 시간</label>
+              <div class="input-with-unit">
+                <input class="input" type="number" id="activity-minutes" name="minutes" min="1" max="100" step="1" value="20" inputmode="numeric" aria-describedby="activity-minutes-unit" data-min="1" required>
+                <span class="unit" id="activity-minutes-unit">분</span>
+              </div>
+            </div>
+
+            <fieldset class="field field--wide" data-field data-label="활동 형태">
+              <legend class="field-label">활동 형태</legend>
+              <div class="radio-group">
+                <label class="radio"><input type="radio" name="grouping" value="상관없음" checked>상관없음</label>
+                <label class="radio"><input type="radio" name="grouping" value="개별">개별</label>
+                <label class="radio"><input type="radio" name="grouping" value="짝">짝</label>
+                <label class="radio"><input type="radio" name="grouping" value="모둠">모둠</label>
+                <label class="radio"><input type="radio" name="grouping" value="전체">전체</label>
+              </div>
+            </fieldset>
+
+            <div class="field" data-field data-label="학생 수">
+              <label class="field-label" for="activity-students">학생 수 <span class="optional">(선택)</span></label>
+              <div class="input-with-unit">
+                <input class="input" type="number" id="activity-students" name="students" min="1" max="40" step="1" inputmode="numeric" aria-describedby="activity-students-unit">
+                <span class="unit" id="activity-students-unit">명</span>
+              </div>
+            </div>
+
+            <div class="field" data-field data-label="모둠 인원">
+              <label class="field-label" for="activity-group-size">모둠 인원</label>
+              <div class="input-with-unit">
+                <input class="input" type="number" id="activity-group-size" name="groupSize" min="2" max="6" step="1" inputmode="numeric" aria-describedby="activity-group-size-unit" data-min="2" data-max="6" required>
+                <span class="unit" id="activity-group-size-unit">명</span>
+              </div>
+            </div>
+
+            <div class="field field--wide" data-field data-label="쓸 수 있는 준비물">
+              <label class="field-label" for="activity-materials">쓸 수 있는 준비물 <span class="optional">(선택)</span></label>
+              <input class="input" type="text" id="activity-materials" name="materials" placeholder="예: 태블릿, 포스트잇" autocomplete="off">
+            </div>
+
+            <div class="form-actions">
+              <button class="button button--primary" type="submit">활동 추천</button>
+            </div>
+          </div>
+        </form>
+
+        <section class="results" aria-labelledby="results-title">
+          <h2 class="results-title" id="results-title">추천 활동</h2>
+          <p class="result-status" role="status" data-result-status></p>
+          <div class="card-list" data-result-list>
+            <div class="card card--empty">
+              <p>아직 추천받은 활동이 없습니다. 위 항목을 입력하고 '활동 추천'을 누르세요.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

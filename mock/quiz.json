@@ -1,0 +1,42 @@
+[
+  {
+    "number": 1,
+    "type": "선택형",
+    "question": "7 + 5의 값은 얼마인가요?",
+    "choices": ["10", "11", "12", "13"],
+    "answer": "12",
+    "explanation": "7에 5를 더하면 12입니다."
+  },
+  {
+    "number": 2,
+    "type": "선택형",
+    "question": "15 - 8의 값은 얼마인가요?",
+    "choices": ["6", "7", "8", "9"],
+    "answer": "7",
+    "explanation": "15에서 8을 빼면 7입니다."
+  },
+  {
+    "number": 3,
+    "type": "선택형",
+    "question": "4 × 3의 값은 얼마인가요?",
+    "choices": ["7", "10", "12", "16"],
+    "answer": "12",
+    "explanation": "4를 세 번 더하면 12입니다."
+  },
+  {
+    "number": 4,
+    "type": "선택형",
+    "question": "18 ÷ 3의 값은 얼마인가요?",
+    "choices": ["5", "6", "7", "9"],
+    "answer": "6",
+    "explanation": "18을 3으로 나누면 6입니다."
+  },
+  {
+    "number": 5,
+    "type": "선택형",
+    "question": "다음 중 가장 큰 수는 무엇인가요?",
+    "choices": ["24", "42", "34", "23"],
+    "answer": "42",
+    "explanation": "42는 십의 자리 숫자가 4로 다른 수보다 큽니다."
+  }
+]

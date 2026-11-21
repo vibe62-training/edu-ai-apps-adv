@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>퀴즈 생성기 - 수업 준비 도우미</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/form-check.js" defer></script>
+  <script src="js/cards.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar" aria-label="기능 메뉴">
+      <a class="brand" href="index.html">수업 준비 도우미</a>
+      <ul class="menu">
+        <li><a href="quiz.html" aria-current="page">퀴즈 생성기</a></li>
+        <li><a href="activity.html">학습활동 추천</a></li>
+      </ul>
+    </nav>
+
+    <main class="main">
+      <div class="main-inner">
+        <h1 class="page-title">퀴즈 생성기</h1>
+
+        <form class="card" aria-label="퀴즈 입력" novalidate data-submit-form data-feature="quiz">
+          <div class="form-grid">
+            <div class="field" data-field data-label="학년">
+              <label class="field-label" for="quiz-grade">학년</label>
+              <select class="input" id="quiz-grade" name="grade" required>
+                <option value="">학년 선택</option>
+                <option>초1</option>
+                <option>초2</option>
+                <option>초3</option>
+                <option>초4</option>
+                <option>초5</option>
+                <option>초6</option>
+                <option>중1</option>
+                <option>중2</option>
+                <option>중3</option>
+                <option>고1</option>
+                <option>고2</option>
+                <option>고3</option>
+              </select>
+            </div>
+
+            <div class="field" data-field data-label="과목">
+              <label class="field-label" for="quiz-subject">과목</label>
+              <input class="input" type="text" id="quiz-subject" name="subject" autocomplete="off" required>
+            </div>
+
+            <div class="field field--wide" data-field data-label="단원 또는 주제">
+              <label class="field-label" for="quiz-topic">단원 또는 주제</label>
+              <input class="input" type="text" id="quiz-topic" name="topic" autocomplete="off" required>
+            </div>
+
+            <fieldset class="field" data-field data-label="문항 유형">
+              <legend class="field-label">문항 유형</legend>
+              <div class="radio-group">
+                <label class="radio"><input type="radio" name="type" value="선택형" checked>선택형(보기 4개)</label>
+                <label class="radio"><input type="radio" name="type" value="OX">OX</label>
+                <label class="radio"><input type="radio" name="type" value="단답형">단답형</label>
+              </div>
+            </fieldset>
+
+            <div class="field" data-field data-label="문항 수">
+              <label class="field-label" for="quiz-count">문항 수</label>
+              <div class="input-with-unit">
+                <input class="input" type="number" id="quiz-count" name="count" min="1" max="20" step="1" value="5" inputmode="numeric" aria-describedby="quiz-count-unit" required>
+                <span class="unit" id="quiz-count-unit">개</span>
+              </div>
+            </div>
+
+            <fieldset class="field" data-field data-label="난이도">
+              <legend class="field-label">난이도</legend>
+              <div class="radio-group">
+                <label class="radio"><input type="radio" name="level" value="쉬움">쉬움</label>
+                <label class="radio"><input type="radio" name="level" value="보통" checked>보통</label>
+                <label class="radio"><input type="radio" name="level" value="어려움">어려움</label>
+              </div>
+            </fieldset>
+
+            <div class="field field--wide" data-field data-label="참고 자료">
+              <label class="field-label" for="quiz-reference">참고 자료 <span class="optional">(선택)</span></label>
+              <textarea class="input" id="quiz-reference" name="reference" rows="6" aria-describedby="quiz-reference-count"></textarea>
+              <span class="char-count" id="quiz-reference-count" data-count-for="quiz-reference" data-max="2000">0/2000</span>
+            </div>
+
+            <div class="form-actions">
+              <button class="button button--primary" type="submit">퀴즈 생성</button>
+            </div>
+          </div>
+        </form>
+
+        <section class="results" aria-labelledby="results-title">
+          <h2 class="results-title" id="results-title">퀴즈 결과</h2>
+          <p class="result-status" role="status" data-result-status></p>
+          <div class="card-list" data-result-list>
+            <div class="card card--empty">
+              <p>아직 만든 문항이 없습니다. 위 항목을 입력하고 '퀴즈 생성'을 누르세요.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
